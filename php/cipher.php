@@ -1,0 +1,10 @@
+<?php
+
+
+    $iv = chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0) . chr(0x0);
+    $password = substr(hash('sha256', '3sc3RLrpd17', true), 0, 32);
+    $method = 'aes-256-cbc';
+        
+
+
+?>
