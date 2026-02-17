@@ -15,7 +15,7 @@
 	var refreshSpeed = 2000; // частота обновления диалога
 	
 
-	$( document ).ready(function() {
+	$(document).ready(function() {
 		$("#base_loading").hide();
 		$("#login").hide();
 		$("#password").hide();
@@ -36,6 +36,7 @@
 		data: { startChatLog: 'check'},
             
 		success: function(data){
+		
 		$("#base_loading").show();
 		$("#base_loading").append(data + '<br>');
 		$.ajax({
@@ -51,13 +52,15 @@
 		url: 'php/server.php',
 		data: { checkServer: 'check'},
 		success: function(data){
-	    if(data == 'ok') {
+			alert(data);
+	    if(data.trim() == 'ok') {
 		$.ajax({
 		type: 'post',
 		url: 'php/server.php',
 		data: { startServer: 'check'},
 					
 		success: function(data){
+			
 		$("#base_loading").append(data + '<br>');
 	    $("#login").show();
 		$("#password").show();
@@ -68,7 +71,8 @@
 						
 		}) 
 		} else {
-		$("#base_loading").val() = 'Ошибка';
+		
+		$("#base_loading").val('Ошибка');
 		}
 	    }
 	    })
@@ -84,6 +88,13 @@
 		$('#logbutton').click(() => {
 		let log = $('#login').val();
         let pass = $('#password').val();
+		$.ajax({
+		type: 'post',
+		url: 'php/server.php',
+		data: { favourLog: log},
+		success: function(data){
+        
+		}});	
 		$.ajax({
 		type: 'post',
 		url: 'php/server.php',
@@ -109,8 +120,7 @@
 		});
 		$("#dialogs_window").append(data);
 		$("#post_login").val(log);
-			
-			
+        
 		} else {
 		alert('Неверный логин или пароль!');
         $("#login").val('');

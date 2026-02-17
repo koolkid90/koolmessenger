@@ -77,6 +77,14 @@ if (isset($_POST['passLog'])) {
     $passLog = new passLog ($chat_connection, $users_connection);
 	$passLog->passLog();
 }
+if (isset($_POST['favourLog'])) {
+	$chat_connection = new mysqli("localhost", "root", "", "chat");
+	$users_connection = new mysqli("localhost","root", "", "users_info");
+	require_once('favour.php');
+    $classFavour = new classFavour ($chat_connection, $users_connection);
+	$classFavour->createFavour();
+	
+}
 
 
 // CHAT
