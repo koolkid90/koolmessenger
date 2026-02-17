@@ -88,13 +88,7 @@
 		$('#logbutton').click(() => {
 		let log = $('#login').val();
         let pass = $('#password').val();
-		$.ajax({
-		type: 'post',
-		url: 'php/server.php',
-		data: { favourLog: log},
-		success: function(data){
-        
-		}});	
+			
 		$.ajax({
 		type: 'post',
 		url: 'php/server.php',
@@ -436,6 +430,13 @@ $('#backbutton').click(() => {
 	$("#reg_login").val('');
     $("#reg_password").val('');
     $("#reg_password_repeat").val('');
+	$.ajax({
+	type: 'post',
+	url: 'php/server.php',
+	data: { favourLog: login},
+	success: function(data){
+        
+		}});
 	}
     }
 	});
