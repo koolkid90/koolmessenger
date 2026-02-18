@@ -60,7 +60,13 @@ public function passLog() {
 
     $decrypted = openssl_decrypt(base64_decode($row2['message']), $this->method, $this->password, OPENSSL_RAW_DATA, $this->iv);	
     
-    if ($row2['id'] == '1') {
+    if (strpos($all_dialogs[$i],"Избранное" )) {
+    echo '<div id="dialog_object"><div id="favourites_block" onclick="dialogsBlockClick(this)"><div id="dialogs_id">'.$all_dialogs[$i].'</div><div id="favourites_login">'.$full_dia_with.'</div><br><br>
+
+    <div id="dialogs_message">'.$decrypted.'</div></div><div id="date_block">'.$row2['date'].'</div></div></div><br><br>';
+    }
+
+     else if ($row2['id'] == '1') {
 
     echo '<div id="dialog_object"><div id="dialogs_block" onclick="dialogsBlockClick(this)"><div id="dialogs_id">'.$all_dialogs[$i].'</div><div id="dialogs_login">'.$full_dia_with.'</div><br><br>
 
