@@ -1,3 +1,8 @@
+$.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
 
     document.getElementById("login").onclick = function(e) {
 

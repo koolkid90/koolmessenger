@@ -1,8 +1,17 @@
 
 <?php
- // база данных с сообщениями
- // база данных с пользователями
+
 date_default_timezone_set('UTC');
+
+// CSRF-Token
+
+if (isset($_POST['csrf_token'])) {
+
+if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+    die('CSRF атака обнаружена!');
+}
+}
+
 
 // STARTER
 
