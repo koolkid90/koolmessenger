@@ -6,11 +6,19 @@
 	<link rel="stylesheet" href="style/style.css">
 	</head>
 	<body>
-			
+<?php
+session_start();
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+$token = $_SESSION['csrf_token'];
+?>
+<input type="hidden" id="csrf_token" value="<?php echo $token; ?>">
+
 	<div id = 'userform'>
 	<div id="base_loading"></div>
-	<input type ='text' id="login" value="123"></input><br><br>
-	<input type = 'text' id="password" value="123"></input><br><br>
+	<input type ='text' id="login" value=""></input><br><br>
+	<input type = 'text' id="password" value=""></input><br><br>
 	<button id="logbutton">Войти</button> <br><br>
 	<button id="regbutton">Регистрация</button></div>
 	</div>
