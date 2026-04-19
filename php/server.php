@@ -4,7 +4,7 @@
 date_default_timezone_set('UTC');
 
 require_once('server/csrf.php');
-require_once('server/chatting.php');
+require_once('chat.php');
 require_once('server/logging.php');
 require_once('server/registration.php');
 require_once('server/starter_class.php');
@@ -13,7 +13,7 @@ require_once('server/searching.php');
 $CSRF = new CSRFTokens();
 $starter = new Starter();
 $logging = new Logging();
-$chatting = new Chatting();
+$chatting = new chat();
 $search = new Searching();
 $registration = new Registration();
 
@@ -50,19 +50,19 @@ $logging->FavourLogging();
 // CHAT
 
 if (isset($_POST['messcheck'])) {
-$chatting->messCheckBefore();
+$chatting->messCheckCHAT();
 }
 if (isset($_POST['message_data'])) {
-$chatting->messDataBefore();
+$chatting->messageDataCHAT();
 }
 if (isset($_POST['dia_id'])) {
-$chatting->diaIDBefore();
+$chatting->diaIDCHAT();
 }
 if (isset($_POST['deletelog'])) {
-$chatting->deleteLogBefore();
+$chatting->deleteLogCHAT();
 }
 if (isset($_POST['delete_message_log'])) {
-$chatting->deleteMessageLogBefore();
+$chatting->deleteMessageLogCHAT();
 }
 
 // SEARCHING 
