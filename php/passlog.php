@@ -12,7 +12,7 @@ class passLog extends Connections {
     
 }
 public function passLog() {
-    global $login;
+    $login;
     $userform = $_POST['passLog'];
     $login = strstr($userform, '/', true);
     $password = trim(strstr($userform, '/'), '/');
@@ -29,9 +29,9 @@ public function passLog() {
     for ($i = 0; $i < count($all_dialogs); $i++) {
     $actual_dialog = 'SELECT * FROM '.$all_dialogs[$i].' ORDER BY id DESC LIMIT 1 ';
     $actual_dialog_result = mysqli_query($this->conn, $actual_dialog);
-    global $full_dia_with;
-    global $post_log_1;
-    global $post_log_2;
+    $full_dia_with;
+    $post_log_1;
+    $post_log_2;
     [$post_log_1,$post_log_2] = explode('_',$all_dialogs[$i]);  
     if ($post_log_1 == $login) {
     $full_dia_with = $post_log_2;
@@ -40,12 +40,12 @@ public function passLog() {
     }
     foreach($actual_dialog_result as $row2){  
 
-    if (strpos($all_dialogs[$i],"Избранное" )) {
+    if (strpos($all_dialogs[$i],"Favourites" )) {
     echo '<div id="dialog_object"><div id="favourites_block" onclick="dialogsBlockClick(this)">
     <div id="dialogs_id">'.$all_dialogs[$i].'</div><div id="favourites_login">'.$full_dia_with.'</div>
     <br><br>
     <div id="dialogs_message">'.$row2['message'].'</div></div><div id="date_block">'.$row2['date'].'
-    </div></div></div><br><br>';
+    </div></div><br><br>';
     }
 
      else if ($row2['id'] == '1') {

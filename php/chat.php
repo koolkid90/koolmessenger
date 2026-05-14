@@ -16,11 +16,11 @@ class chat extends Connections  {
     
     public function messCheck() {
     $messcheck = $_POST['messcheck'];
-    global $searcher_result;
-    global $actual_realtime_dialog;
-    global $actual_sql;
-    global $reverse_dia;
-    global $actual_realtime_dialog_result;
+    $searcher_result;
+    $actual_realtime_dialog;
+    $actual_sql;
+    $reverse_dia;
+    $actual_realtime_dialog_result;
     
     $login = strstr($messcheck, '/', true);
     
@@ -35,12 +35,12 @@ class chat extends Connections  {
         
     // подключаемся к базе данных 2
     foreach ($searcher_result as $row) {
-        if ($row['Tables_in_chat'] = $actual_realtime_dialog) {
+        if ($row['Tables_in_chat'] == $actual_realtime_dialog) {
         $actual_sql = 'SELECT * FROM '.$actual_realtime_dialog.'';
-         $actual_realtime_dialog_result = mysqli_query($this->conn, $actual_sql); 
+        $actual_realtime_dialog_result = mysqli_query($this->conn, $actual_sql); 
                   
              
-    } else if ($row['Tables_in_chat'] = $reverse_dia) {
+    } else if ($row['Tables_in_chat'] == $reverse_dia) {
         $actual_sql = 'SELECT * FROM '.$reverse_dia.'';
         $actual_realtime_dialog_result = mysqli_query($this->conn, $actual_sql); 
                 
@@ -116,25 +116,25 @@ class chat extends Connections  {
         $dialog_id = $_POST['dia_id'];
         $dia_id = strstr($dialog_id, '/', true);
         $login = trim(strstr($dialog_id, '/'), '/');
-        
         $reverse_1part = strstr($dia_id, '_', true);
         $reverse_2part = trim(strstr($dia_id, '_'), '_');
         $reverse_dia = $reverse_2part.'_'.$reverse_1part;
         
         $searcher_sql = 'SHOW TABLES';
         $searcher_result = mysqli_query($this->conn, $searcher_sql);
-        global $refresh_letter;
-        global $refresh_letter_result;
+        $refresh_letter;
+        $refresh_letter_result;
+        
         foreach ($searcher_result as $row) {
-        if ($row['Tables_in_chat'] = $dia_id) {
+        if ($row['Tables_in_chat'] == $dia_id) {
             $refresh_letter = 'SELECT * FROM '.$dia_id.'';
             $refresh_letter_result = mysqli_query($this->conn, $refresh_letter);
-            $succeful_connect=true;
+            
              
-        } else if ($row['Tables_in_chat'] = $reverse_dia) {
+        } else if ($row['Tables_in_chat'] == $reverse_dia) {
             $refresh_letter = 'SELECT * FROM '.$reverse_dia.'';
-            $refresh_letter_result = mysqli_query($conn, $refresh_letter);
-            $succeful_connect=true;
+            $refresh_letter_result = mysqli_query($this->$conn, $refresh_letter);
+            
             }
         }
         
@@ -142,7 +142,7 @@ class chat extends Connections  {
     
         
         
-        if ($succeful_connect=true & !empty($refresh_letter_result)) {
+        if (!empty($refresh_letter_result)) {
         
         echo '<div id="letters">';
         

@@ -1,7 +1,8 @@
 
 <?php
 
-date_default_timezone_set('UTC');
+date_default_timezone_set('Europe/Moscow');
+setlocale(LC_ALL, 'ru_RU.UTF-8');
 
 require_once('server/csrf.php');
 require_once('server/chatting.php');

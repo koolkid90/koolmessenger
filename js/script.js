@@ -178,8 +178,13 @@ function deleteButtonMessage(dia) {
 		
 		
 	function dialogsBlockClick(dia) {
-			
-	let dialog_id = dia.childNodes[0].textContent;
+	let dialog_id;
+	if(dia.childNodes[1].textContent.indexOf('Favourites') !== -1) {
+	dialog_id = dia.childNodes[1].textContent;	
+	} else {
+		dialog_id = dia.childNodes[0].textContent;
+	}
+	
 	let log = $('#post_login').val();
 		
 	if (dialog_id) {
@@ -188,7 +193,6 @@ function deleteButtonMessage(dia) {
 	url: 'php/server.php',
 	data: {dia_id:  dialog_id + '/' + log },
 	success: function(data){
-						
 	$('#diags_id').val(dialog_id);
 	$('#searchform').hide();
 	$("#common_window").show();
@@ -425,7 +429,7 @@ $('#backbutton').click(() => {
 	url: "php/server.php",
 	data: { reg_data: login + '_' + password},
 	success: function(data){
-	alert(data);
+	alert(data.trim());
 	if( data.trim() === 'Пользователь с данным логином уже существует') {
     $("#reg_login").val('');
     $("#reg_password").val('');
