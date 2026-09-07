@@ -4,8 +4,8 @@
 
 <img width="464" height="29" alt="ьуы" src="https://github.com/user-attachments/assets/3d0a0547-eb21-41e2-a50f-583f109fd325" />
 
-<img width="1316" height="646" alt="cover" src="https://github.com/user-attachments/assets/45934162-6e61-4344-a1ee-3b26105001e2" />
-<img width="1319" height="640" alt="cover2" src="https://github.com/user-attachments/assets/6723cd7d-961d-4174-93b4-d55a710d3921" />
+<img width="1316" height="646" alt="cover" src="[https://github.com/koolkid90/koolmessenger/blob/main/cover.png]" />
+<img width="1319" height="640" alt="cover2" src="[https://github.com/koolkid90/koolmessenger/blob/main/cover2.png]" />
 
 **Обработка ошибок:** Все PDO-запросы обёрнуты в `try-catch`. В случае ошибки соединения или выполнения запроса пользователь увидит понятное сообщение, а детали ошибки пишутся в лог сервера (`error_log`). Это предотвращает появление "белого экрана" (WSOD).
 
