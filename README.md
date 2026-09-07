@@ -2,7 +2,7 @@
 ![License](https://img.shields.io/badge/License-MIT-green)
 ![PDO](https://img.shields.io/badge/PDO-Enabled-brightgreen)
 
-<img width="464" height="29" alt="logo" src="https://github.com/user-attachments/assets/3d0a0547-eb21-41e2-a50f-583f109fd325](https://create.online-letters.ru/letters/i/cyrillictechno/3504/000000/60/0/jp8w6unpeijigtkqe7nir.png" />
+<img width="464" height="29" alt="logo" src="https://create.online-letters.ru/letters/i/cyrillictechno/3504/000000/60/0/jp8w6unpeijigtkqe7nir.png" />
 
 <img width="1316" height="646" alt="cover" src="https://github.com/koolkid90/koolmessenger/blob/main/cover.png" />
 <img width="1319" height="640" alt="cover2" src="https://github.com/koolkid90/koolmessenger/blob/main/cover2.png" />
